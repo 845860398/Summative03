@@ -1,0 +1,4 @@
+bootstrap - nice quick buttons
+jquery - easy ajax req
+node.js - allows to run local host, internl ajax req
+npm - allows the librarys to run locally and without internet connection

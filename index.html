@@ -2,15 +2,153 @@
 <html>
 <head>
 	<title></title>
+
+	<!-- bootstrap css npm -->
+	<link rel="stylesheet" href="node_modules/bootstrap/dist/css/bootstrap.css">
+	<!-- font awesome cdn -->
+	<script defer src="https://use.fontawesome.com/releases/v5.0.8/js/all.js"></script>
+	<!-- custom stylesheet -->
 	<link rel="stylesheet" type="text/css" href="css/style.css">
 </head>
+<style>
+
+
+	#map{
+		width: 100vw;
+		height: 100vh;
+		z-index: 2;
+		position: fixed;
+	}
+
+	#backgroundImage{
+		width: 100vw;
+		height: 100vh;
+		background-image: url('img/mobileMap.png');
+		background-repeat: no-repeat;
+		background-size: 100% 100%;
+		filter: blur(3px);
+		z-index: 1;
+		position: fixed;
+	}
+
+	#formContent{
+		width: 90%;
+		height: 95%;
+		border-radius: 25px;
+		background-color: rgba(255, 195, 0, .2);
+		z-index: 3;
+		margin-left: auto;
+		margin-right: auto;
+		margin-top: 2em;
+	}
+
+
+	#formInput{
+		margin-top: 2em;
+		width: 50em;
+		text-align: center;
+	}
+
+	.grid-container{
+		display: grid;
+		grid-gap: 1em;
+		grid-template-columns: 1fr;
+		grid-template-rows: 3 3fr;
+		grid-template-areas: 
+		'logo'
+		'form'
+		'options';
+	}
+
+	.logo{
+		/*background-color: red;*/
+	}
+
+	.form{
+
+	}
+
+	.fontAwesome{
+		font-size: 6em;
+	}
+
+
+	h2{
+		letter-spacing: 2em;
+	}
+	
+	.btn{
+		width: 50em;
+		margin-top: 2em;
+		letter-spacing: 2em;
+	}
+
+	#APIform{
+		text-align: center;
+	}
+
+	@media only screen and (orientation: landscape){
+
+	    #backgroundImage {
+	        background-image: url('img/map.png');
+	    }
+	}
+
+</style>
 <body>
 
 
+	<div id="backgroundImage"></div> <!-- /container -->
 
+	<div id="map">
+		<div id="formContent" class="grid-container">
+			<div class="logo"></div>
+			<div class="form">
+				<form id="APIform">
+					<h2 class="heading">LOCATION</h2>
+					<input class="inputLocation" id="formInput" name="ac" type="text" size="40">
+					<button type="button" class="btn btn-outline-info">FIND</button>
+					<div class="fontAwesome">
+						<i class="fas fa-home"></i>
+						<i class="fas fa-hospital"></i>
+						<i class="fas fa-utensils">
+					</div>
+				</form>
+			</div>
+			<div class="options"></div>
+		</div> <!-- /class='formContent' -->
+	</div> <!-- /map -->
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+	<!-- Jquery NPM -->
+	<script type="text/javascript" src="node_modules/jquery/dist/jquery.js"></script>
+
+
+	<!-- custom js -->
 	<script type="text/javascript" src="js/custom.js"></script>
 	<script type="text/javascript" src="js/duke.js"></script>
 	<script type="text/javascript" src="js/jordan.js"></script>
 	<script type="text/javascript" src="js/jesse.js"></script>
+
+	<!-- google maps API -->
+	<!-- Jesse's key -->
+	<script type="text/javascript" src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCyqxMkhc31hKFwW7etsYUkj4PoaO0nSoo&libraries=places&callback=initAutocomplete"></script>
+
+
+
 </body>
 </html>
