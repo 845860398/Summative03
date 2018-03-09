@@ -2,7 +2,12 @@
 
 
 
+
+
+
+
 function initAutocomplete(){
+
 
     var input = document.getElementById('formInput');
 
@@ -41,11 +46,3 @@ function initAutocomplete(){
 
 
 
-(function init() {
-
-
-
-
-
-
-})();
