@@ -11,36 +11,48 @@
 	<link rel="stylesheet" type="text/css" href="css/style.css">
 </head>
 <body>
-
-	<div id="landingDiv">
-		<div id="logo"></div>
-		<div id="landingContent"></div>
-	</div> 
 	
+	<div id="wrapper">
+
+		<!-- homepage -->
+		<div id="titlePage">
+			<div id="logo"></div>
+			<div id="landingContent"></div>
+		</div> 
+		
+		<!-- form -->
 		<div id="formContent" class="grid-container">
 			<div class="form">
 				<form id="APIform">
-					<h2 class="heading">LOCATION</h2>
-					<input class="inputLocation" id="formInput" name="ac" type="text" size="40">
-					<button type="button" class="btn btn-outline-info">FIND</button>
+					<div id="searchContainer">
+						<input class="" id="formInput" name="ac" type="text" size="40">
+						<button type="button"  id="submitBtn" class="btn btn-outline-info"><i class="fas fa-search"></i></button>
+					</div>
+					<div id="optionContainer">
+						<label>
+					  		<input type="radio" name="options" value="accommodation">
+					  		<div class="iconContainer"></div>
+					  		<p>ACCOMMODATION</p>
+						</label>
+						<label>
+					  		<input type="radio" name="options" value="parks">
+					  		<div class="iconContainer"></div>
+					  		<p>PARKS</p>
+						</label>
+						<label>
+					  		<input type="radio" name="options" value="restaurant">
+					  		<div class="iconContainer"></div>
+					  		<p>RESTAURANT</p>
+						</label>
+					</div>
 				</form>
 			</div>
 		</div> 
 
-	<div id="map">
-
- 
-
-
-<!-- 		<div class="fontAwesome">
-			<i class="fas fa-home"></i>
-			<i class="fas fa-hospital"></i>
-			<i class="fas fa-utensils"></i>
-		</div>  -->
-
-
-	</div> <!-- /map -->
-
+		<!-- map -->
+		<div id="map"></div> 
+	
+	</div>
 
 
 

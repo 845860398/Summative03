@@ -1,10 +1,98 @@
 * {
 	margin: 0 auto;
-	// background-color: blue;
+	padding: 0;
 }
 
-#map{
-	width: 100vw;
-	height: 100vh;
-	z-index: 1;
+#wrapper {
+	width: 375px;
+	height: 667px;
+	margin-top: 1em;
+	position: relative;
+
+	#formContent {
+		position: absolute;
+	    height:100%;
+	    width:100%;
+	    z-index: 1;
+		
+		#searchContainer {
+			width: 375px;
+			height: 60px;
+			background-color: #F1C40F;
+			display: flex;
+			text-align: center;
+			align-items: center;
+			position: absolute;
+			top: 0;
+
+			#formInput {
+				width: 310px;
+				height: 40px;
+				border-radius: 10px;
+				margin: 0px 0px 0px 10px;
+			}
+
+			#submitBtn {
+				width: 40px;
+				height: 40px;
+				border-radius: 10px;
+				margin: 0 auto;
+				padding: 0;
+				display: inline-block;
+				line-height: 40px;
+				text-align: center;
+
+				.fa-search {
+					width: 20px;
+					height: 20px;
+				}
+			}
+		}
+
+		#optionContainer {
+			width: 375px;
+			height: 100px;
+			background-color: #F1C40F;
+			position: absolute;
+			bottom: 0;
+			text-align: center;
+			
+			label {
+				width: 30%;
+				height: 100%;
+				margin: 0;
+
+				.iconContainer {
+					width: 55px;
+					height: 55px;
+					background-color: #6B6B6B;
+					margin-top: 10px;
+					margin-bottom: 5px;
+					border-radius: 10px;
+				}
+
+				p {
+					font-size: 12px;
+				}
+			}
+
+			label > input { /* HIDE RADIO */
+			  	visibility: hidden; /* Makes input not-clickable */
+			  	position: absolute; /* Remove input from document flow */
+			}
+			
+			label > input:checked + div { /* (RADIO CHECKED) IMAGE STYLES */
+			  	background-color: #fe8c00;
+			}
+		}
+	}
+
+	#map {
+		width: 100%;
+		height: 100%;
+		position: absolute;
+		top: 0;
+	}
+	
+
 }
