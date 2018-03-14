@@ -1,7 +1,7 @@
 
 console.log('A');
 
-$(document).ready(function(){
+
 
 
 
@@ -90,4 +90,3 @@ function callback(results, status) {
 
 // initMap();
 
-}); /* /$document.ready */

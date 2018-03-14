@@ -17,6 +17,7 @@
 	    top: 0;
 	    background-color: #f1c40f;
 		text-align: center;
+		display: none;
 
 	    #helpButton {
 	    	width: 40px;
@@ -58,7 +59,7 @@
 		position: absolute;
 	    height:100%;
 	    width:100%;
-	    z-index: 1;
+	    // z-index: 1;
 		
 		#searchContainer {
 			width: 375px;
@@ -67,14 +68,15 @@
 			display: flex;
 			text-align: center;
 			align-items: center;
-			position: absolute;
-			top: 0;
+			// position: absolute;
+			// top: 0;
 
 			#formInput {
 				width: 310px;
 				height: 40px;
 				border-radius: 10px;
 				margin: 0px 0px 0px 10px;
+				border-style: none;
 			}
 
 			#submitBtn {
@@ -94,12 +96,19 @@
 			}
 		}
 
+		#map {
+			width: 100%;
+			height: 505px;
+			// float: left;
+			
+		}
+
 		#optionContainer {
 			width: 375px;
 			height: 100px;
 			background-color: #F1C40F;
-			position: absolute;
-			bottom: 0;
+			// position: absolute;
+			// bottom: 0;
 			text-align: center;
 			
 			label {
@@ -132,12 +141,7 @@
 		}
 	}
 
-	#map {
-		width: 100%;
-		height: 100%;
-		position: absolute;
-		top: 0;
-	}
+
 	
 
 }

@@ -14,7 +14,8 @@
     z-index: 2;
     top: 0;
     background-color: #f1c40f;
-    text-align: center; }
+    text-align: center;
+    display: none; }
     #wrapper #homepage #helpButton {
       width: 40px;
       height: 40px;
@@ -45,22 +46,20 @@
   #wrapper #formContent {
     position: absolute;
     height: 100%;
-    width: 100%;
-    z-index: 1; }
+    width: 100%; }
     #wrapper #formContent #searchContainer {
       width: 375px;
       height: 60px;
       background-color: #F1C40F;
       display: flex;
       text-align: center;
-      align-items: center;
-      position: absolute;
-      top: 0; }
+      align-items: center; }
       #wrapper #formContent #searchContainer #formInput {
         width: 310px;
         height: 40px;
         border-radius: 10px;
-        margin: 0px 0px 0px 10px; }
+        margin: 0px 0px 0px 10px;
+        border-style: none; }
       #wrapper #formContent #searchContainer #submitBtn {
         width: 40px;
         height: 40px;
@@ -73,12 +72,13 @@
         #wrapper #formContent #searchContainer #submitBtn .fa-search {
           width: 20px;
           height: 20px; }
+    #wrapper #formContent #map {
+      width: 100%;
+      height: 505px; }
     #wrapper #formContent #optionContainer {
       width: 375px;
       height: 100px;
       background-color: #F1C40F;
-      position: absolute;
-      bottom: 0;
       text-align: center; }
       #wrapper #formContent #optionContainer label {
         width: 30%;
@@ -102,10 +102,5 @@
       #wrapper #formContent #optionContainer label > input:checked + div {
         /* (RADIO CHECKED) IMAGE STYLES */
         background-color: #fe8c00; }
-  #wrapper #map {
-    width: 100%;
-    height: 100%;
-    position: absolute;
-    top: 0; }
 
 /*# sourceMappingURL=style.css.map */
