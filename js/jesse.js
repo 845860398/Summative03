@@ -1,21 +1,34 @@
 
-function initMap(){
+console.log('A');
+
+$(document).ready(function(){
+
+
 
     var input = $('#formInput')[0];
-    var search = $('#search')[0];
-    // var input = document.getElementById('formInput');
-    var optionContainer = $('#optionContainer')[0];
+    var submitBtn = $('#submitBtn')[0];
 
-    filterValue
+    var accom = $('#r1')[0];
+    var parks = $('#r2')[0];
+    var rest = $('#r3')[0];
 
 
-    
+
+submitBtn.addEventListener('click', function getRadioOption(){
+    var radioValue = $('input[name=options]:checked').val();
+    console.log(radioValue);
+})
+
+// console.log(radioValue);
+
+
+function initMap(){
 
     var mapDiv = $('#map')[0];
 
     map = new google.maps.Map(document.getElementById('map'), {
         center: {lat: -33.8666, lng: 151.1958},
-        zoom: 2
+        zoom: 8
     });
 
     var acomplete = new google.maps.places.Autocomplete(input);
@@ -76,3 +89,5 @@ function callback(results, status) {
 }
 
 // initMap();
+
+}); /* /$document.ready */
