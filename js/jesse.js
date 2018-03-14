@@ -1,27 +1,24 @@
 
-
-
-console.log('b');
-
 function initMap(){
-
-
 
     var input = $('#formInput')[0];
     var search = $('#search')[0];
     // var input = document.getElementById('formInput');
+    var optionContainer = $('#optionContainer')[0];
 
-    search.addEventListener('click', 'console.log('w');')
+    filterValue
 
 
-
-    var acomplete = new google.maps.places.Autocomplete(input);
+    
 
     var mapDiv = $('#map')[0];
 
     map = new google.maps.Map(document.getElementById('map'), {
-        center: {lat: -33.8666, lng: 151.1958}
+        center: {lat: -33.8666, lng: 151.1958},
+        zoom: 2
     });
+
+    var acomplete = new google.maps.places.Autocomplete(input);
 
     google.maps.event.addListener(acomplete, 'place_changed', function(){
 
@@ -78,4 +75,4 @@ function callback(results, status) {
   }
 }
 
-initMap();
+// initMap();
