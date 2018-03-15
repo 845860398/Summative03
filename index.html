@@ -18,46 +18,68 @@
 		<div id="homepage">
 			<div id="helpButton"><i class="fas fa-question"></i></div>
 			<div id="logo"></div>
-			<button>Tap to Start</button>
+			<h1>Tap to Start</h1>
 		</div> 
 		
+		<!-- help content -->
+		<div id="helpContainer">
+			<div id="helpContent">
+				<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Architecto excepturi quaerat fugit velit assumenda molestiae amet et repellendus minima sapiente, consequuntur, distinctio. Quos corporis molestiae voluptas sapiente eaque id dignissimos.</p>
+			</div>
+		</div>
+		
 		<!-- form -->
-		<div id="formContent" class="grid-container">
+		<div id="formContent">
 			<div class="form">
 				<div id="searchContainer">
 					<form id="APIform">
 						<input class="" id="formInput" name="ac" type="text" size="40">
-						<button type="button"  id="submitBtn" class="btn btn-outline-info"><i class="fas fa-search"></i></button>
+						<button type="button"  id="submitBtn"><i class="fas fa-search"></i></button>
 					</form>
 				</div>			
 
-			<!-- map -->
-			<div id="map"></div> 
+				<!-- map -->
+				<div id="map">
+					<div id="directionInfo"></div>
+				</div> 
 				
-			<div id="optionContainer">
-				<form>
-					<label>
-				  		<input id="r1" type="radio" name="options" value="lodging">
-				  		<div class="iconContainer"></div>
-				  		<p>ACCOMMODATION</p>
-					</label>
-					<label>
-				  		<input id="r2" type="radio" name="options" value="park">
-				  		<div class="iconContainer"></div>
-				  		<p>PARKS</p>
-					</label>
-					<label>
-				  		<input id="r3" type="radio" name="options" value="restaurant">
-				  		<div class="iconContainer"></div>
-				  		<p>RESTAURANT</p>
-					</label>
-				</form>
-			</div>
-				
-
+				<div id="optionContainer">
+					<form>
+						<label>
+					  		<input id="r1" type="radio" name="options" value="lodging">
+					  		<div class="iconContainer"><i class="fas fa-bed"></i></div>
+					  		<p>ACCOMMODATION</p>
+						</label>
+						<label>
+					  		<input id="r2" type="radio" name="options" value="park">
+					  		<div class="iconContainer"><i class="fas fa-tree"></i></div>
+					  		<p>PARKS</p>
+						</label>
+						<label>
+					  		<input id="r3" type="radio" name="options" value="restaurant">
+					  		<div class="iconContainer"><i class="fas fa-utensils"></i></div>
+					  		<p>RESTAURANT</p>
+						</label>
+					</form>
+				</div>	
 			</div>
 		</div> 
-	
+		
+		<!-- modal -->
+		<div id="modalContainer">
+			<div id="imgContainer"></div>
+			<div id="infoContainer">
+				
+			</div>
+			<div id="btnContainer">
+				<div id="getDirectionBtn">
+					<h2>GET DIRECTION</h2>
+				</div>
+				<div id="closeBtn">
+					<h2>CLOSE</h2>
+				</div>
+			</div>
+		</div>
 	</div>
 
 
