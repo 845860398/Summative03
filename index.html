@@ -9,6 +9,17 @@
 	<script defer src="https://use.fontawesome.com/releases/v5.0.8/js/all.js"></script>
 	<!-- custom stylesheet -->
 	<link rel="stylesheet" type="text/css" href="css/style.css">
+	<style>
+
+		#infowindow-content {
+        	display: none;
+        }
+
+        #map #infowindow-content {
+       		display: inline;
+        }
+
+	</style>
 </head>
 <body>
 	
@@ -33,21 +44,26 @@
 
 			<!-- map -->
 			<div id="map"></div> 
+			<div id="infowindow-content">
+		      <img src="" width="16" height="16" id="place-icon">
+		      <span id="place-name"  class="title"></span><br>
+		      <span id="place-address"></span>
+		    </div>
 				
 			<div id="optionContainer">
 				<form>
 					<label>
-				  		<input id="r1" type="radio" name="options" value="lodging">
+				  		<input id="changetype-lodging" type="radio" name="type" value="lodging">
 				  		<div class="iconContainer"></div>
 				  		<p>ACCOMMODATION</p>
 					</label>
 					<label>
-				  		<input id="r2" type="radio" name="options" value="park">
+				  		<input id="changetype-park" type="radio" name="type" value="park">
 				  		<div class="iconContainer"></div>
 				  		<p>PARKS</p>
 					</label>
 					<label>
-				  		<input id="r3" type="radio" name="options" value="restaurant">
+				  		<input id="changetype-restaurant" type="radio" name="type" value="restaurant">
 				  		<div class="iconContainer"></div>
 				  		<p>RESTAURANT</p>
 					</label>
