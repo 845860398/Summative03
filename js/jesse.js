@@ -6,6 +6,23 @@ console.log('A');
 var input = $('#formInput')[0];
 var submitBtn = $('#submitBtn')[0];
 
+// var selectedRadioValue = '';
+var radioBtnOption = $('.radioBtn')[0];
+// var radioValue;
+// for (var i = 0; i < radioBtnOption.length; i++){
+//     if (radioBtnOption[i].checked){
+//         radioValue = radioBtnOption[i].value;
+//     }
+// }
+
+
+
+
+console.log(radioBtnOption);
+
+
+
+
 // google maps init
 function initMap(){
 
@@ -18,7 +35,9 @@ function initMap(){
         center: startLocation,
         zoom: 4,
         disableDefaultUI: true
-    });
+    });// /map
+
+
 
     // assigning to radios/
     var accom = $('#changetype-lodging')[0];
@@ -40,15 +59,25 @@ function initMap(){
     // move map to where autoComplete value is
     autocomplete.bindTo('bounds', map);
 
+
     var marker = new google.maps.Marker({
         map: map,
         anchorPoint: new google.maps.Point(0, -29)
-    });
+    });// this is ok
 
+
+    // autoComplete event
     autocomplete.addListener('place_changed', function() {
 
+        // create a new map marker
+        var marker = new google.maps.Marker({
+            map: map,
+            anchorPoint: new google.maps.Point(0, -29)
+        });// this is ok
+
+
         infowindow.close();
-        marker.setVisible(false);
+        marker.setVisible(true);
 
         var place = autocomplete.getPlace();
 
@@ -59,7 +88,7 @@ function initMap(){
             // pressed the Enter key, or the Place Details request failed.
             window.alert("No details available for input: '" + place.name + "'");
             return;
-        }
+        }// this is ok
 
         if (place.geometry.viewport) {
             map.fitBounds(place.geometry.viewport);
@@ -78,7 +107,7 @@ function initMap(){
                 (place.address_components[1] && place.address_components[1].short_name || ''),
                 (place.address_components[2] && place.address_components[2].short_name || '')
             ].join(' ');
-        }
+        }// this is ok
 
         infowindowContent.children['place-icon'].src = place.icon;
         infowindowContent.children['place-name'].textContent = place.name;
@@ -93,25 +122,26 @@ function initMap(){
         var myLong = place.geometry.location.lng();
         var latLng = {lat: myLat, lng: myLong};
 
-        console.log(latLng);
 
         var service = new google.maps.places.PlacesService(map);
 
-        submitBtn.addEventListener('click', function getRadioOption(){
+        // radioValue.addEventListener('click', function getRadioOption(){
 
-            var radioValue = $('input[name=type]:checked').val();
+            // var radioValue = $('input[name=type]:checked').val();
 
-            console.log(radioValue);
+        $('input[type=radio]').click(function () {
+
+            console.log(this.value);
 
             var apiKey = 'AIzaSyCyqxMkhc31hKFwW7etsYUkj4PoaO0nSoo'
-            var placesNearByQuery = 'https://maps.googleapis.com/maps/api/place/textsearch/xml?query=' + radioValue + '+in+' + place.name + '&key=' + apiKey;
+            var placesNearByQuery = 'https://maps.googleapis.com/maps/api/place/textsearch/xml?query=' + this.value + '+in+' + place.name + '&key=' + apiKey;
 
             console.log(placesNearByQuery);
 
             service.nearbySearch({
                 location: latLng,
                 radius: 1000,
-                type: radioValue
+                type: this.value
             }, callback);
 
             map = new google.maps.Map(document.getElementById('map'), {
@@ -119,10 +149,29 @@ function initMap(){
                 zoom: 15,
                 disableDefaultUI: true
             });
+        });// this is ok
 
-        }) /* /submitBtn */
+            // console.log(radioValue);
 
-        // console.log(address);
+            // var apiKey = 'AIzaSyCyqxMkhc31hKFwW7etsYUkj4PoaO0nSoo'
+            // var placesNearByQuery = 'https://maps.googleapis.com/maps/api/place/textsearch/xml?query=' + radioValue + '+in+' + place.name + '&key=' + apiKey;
+
+            // console.log(placesNearByQuery);
+
+            // service.nearbySearch({
+            //     location: latLng,
+            //     radius: 1000,
+            //     type: radioValue
+            // }, callback);
+
+            // map = new google.maps.Map(document.getElementById('map'), {
+            //     center: latLng,
+            //     zoom: 15,
+            //     disableDefaultUI: true
+            // });
+
+        // })  // /radioBtnOption
+
 
         function callback(results, status) {
             if (status === google.maps.places.PlacesServiceStatus.OK) {
@@ -130,7 +179,7 @@ function initMap(){
                 createMarker(results[i]);
                 }
             }
-        }
+        }// this is ok
 
         // create markers for types
         function createMarker(place) {
@@ -149,22 +198,23 @@ function initMap(){
                 infowindow.open(map, this);
             });
 
-        }
 
-        function setupClickListener(id, types) {
-            var radioButton = document.getElementById(id);
-            radioButton.addEventListener('click', function() {
-                autocomplete.setTypes(types);
-                });
-        }  
 
-        setupClickListener('changetype-lodging', ['lodging']);
-        setupClickListener('changetype-park', ['park']);
-        setupClickListener('changetype-restaurant', ['restaurant']);
+        }// this is ok
+
+        // function setupClickListener(id, types) {
+        //     var radioButton = document.getElementById(id);
+            // radioButton.addEventListener('click', function() {
+            //     });
+        // }  // this is ok
+
+
+
+
 
         directions();
 
-    }); /* /autoComplete event listener */
+     }); /* /autoComplete event listener */
 
 
 } /* /initMap */
