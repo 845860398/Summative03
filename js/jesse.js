@@ -21,8 +21,6 @@ function initMap(){
         disableDefaultUI: true
     });// /map
 
-
-
     // assigning to radios/
     var accom = $('#changetype-lodging')[0];
     var parks = $('#changetype-park')[0];
@@ -49,7 +47,6 @@ function initMap(){
         anchorPoint: new google.maps.Point(0, -29)
     });// this is ok
 
-
     // autoComplete event
     autocomplete.addListener('place_changed', function() {
 
@@ -61,7 +58,6 @@ function initMap(){
             map: map,
             anchorPoint: new google.maps.Point(0, -29)
         });// /marker
-
 
         // infowindow.close();
         marker.setVisible(true);
@@ -84,41 +80,27 @@ function initMap(){
         marker.setPosition(place.geometry.location);
         marker.setVisible(true);
 
-
+        // event listener icon info window in main location screen
         marker.addListener('click', function(){
+
             var address = '';
 
-           
             if (place.address_components) {
                 address = [
-                    (place.address_components[0] && place.address_components[0].short_name || ''),
-                    (place.address_components[1] && place.address_components[1].short_name || ''),
-                    (place.address_components[2] && place.address_components[2].short_name || '')
+                    // (place.address_components[0] && place.address_components[0].short_name || ''),
+                    // (place.address_components[1] && place.address_components[1].short_name || ''),
+                    (place.address_components[2] && place.address_components[2].long_name || '')
                 ].join(' ');
             }// /if
 
-        
-            console.log(place.address_components);
+            console.log(place);
+            console.log(place.photos);
 
             infowindowContent.children['place-icon'].src = place.icon;
             infowindowContent.children['place-name'].textContent = place.name;
             infowindowContent.children['place-address'].textContent = address;
             infowindow.open(map, marker);
-        });
-        // var address = '';
-       
-        // if (place.address_components) {
-        //     address = [
-        //         (place.address_components[0] && place.address_components[0].short_name || ''),
-        //         (place.address_components[1] && place.address_components[1].short_name || ''),
-        //         (place.address_components[2] && place.address_components[2].short_name || '')
-        //     ].join(' ');
-        // }// /if
-
-        // infowindowContent.children['place-icon'].src = place.icon;
-        // infowindowContent.children['place-name'].textContent = place.name;
-        // infowindowContent.children['place-address'].textContent = address;
-        // infowindow.open(map, marker);
+        }); // /marker.eventListener
 
         var myLat = place.geometry.location.lat();
         var myLong = place.geometry.location.lng();
@@ -148,6 +130,7 @@ function initMap(){
             });
         });// /radio Value
 
+        // create markers from results
         function callback(results, status) {
             if (status === google.maps.places.PlacesServiceStatus.OK) {
                 for (var i = 0; i < results.length; i++) {
@@ -156,15 +139,31 @@ function initMap(){
             }
         }// /callback
 
+        // ---- this code creates custom photo markers (the other create marker function must be commented out)
+        // function createMarker(place) {
+        //     var photos = place.photos;
+        //     if (!photos) {
+        //         return;
+        //     }
+
+        //     var marker = new google.maps.Marker({
+        //         map: map,
+        //         position: place.geometry.location,
+        //         title: place.name,
+        //         icon: photos[0].getUrl({'maxWidth': 35, 'maxHeight': 35})
+        //     });
+        // }
+
         // create markers for types
         function createMarker(place) {
-
             var placeLoc = place.geometry.location;
-
             var marker = new google.maps.Marker({
                 map: map,
-                position: place.geometry.location
+                position: place.geometry.location,
+                placeId: place.place_id
             }); // /marker
+
+            console.log(place.place_id);
 
             // click event on markers to show info
             google.maps.event.addListener(marker, 'click', function() {
