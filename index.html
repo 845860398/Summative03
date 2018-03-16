@@ -51,7 +51,7 @@
 
 
 			<!-- map -->
-			<div id="map"></div> 
+			<div id="map"><div id="directionInfo"></div></div> 
 			<div id="infowindow-content">
 		      <img src="" width="16" height="16" id="place-icon">
 		      <span id="place-name"  class="title"></span><br>
@@ -62,45 +62,27 @@
 				<form>
 					<label>
 				  		<input id="changetype-lodging" type="radio" name="type" value="lodging">
-				  		<div class="iconContainer"></div>
+				  		<div class="iconContainer"><i class="fas fa-bed"></i></div>
 				  		<p>ACCOMMODATION</p>
 					</label>
 					<label>
 				  		<input id="changetype-park" type="radio" name="type" value="park">
-				  		<div class="iconContainer"></div>
+				  		<div class="iconContainer"><i class="fas fa-tree"></i></div>
 				  		<p>PARKS</p>
 					</label>
 					<label>
 				  		<input id="changetype-restaurant" type="radio" name="type" value="restaurant">
-				  		<div class="iconContainer"></div>
+				  		<div class="iconContainer"><i class="fas fa-utensils"></i></div>
 				  		<p>RESTAURANT</p>
 					</label>
 				</form>
 
 				<!-- map -->
-				<div id="map">
+<!-- 				<div id="map">
 					<div id="directionInfo"></div>
-				</div> 
+				</div>  -->
 				
-				<div id="optionContainer">
-					<form>
-						<label>
-					  		<input id="r1" type="radio" name="options" value="lodging">
-					  		<div class="iconContainer"><i class="fas fa-bed"></i></div>
-					  		<p>ACCOMMODATION</p>
-						</label>
-						<label>
-					  		<input id="r2" type="radio" name="options" value="park">
-					  		<div class="iconContainer"><i class="fas fa-tree"></i></div>
-					  		<p>PARKS</p>
-						</label>
-						<label>
-					  		<input id="r3" type="radio" name="options" value="restaurant">
-					  		<div class="iconContainer"><i class="fas fa-utensils"></i></div>
-					  		<p>RESTAURANT</p>
-						</label>
-					</form>
-				</div>	
+				
 
 			</div>
 		</div> 
@@ -142,9 +124,10 @@
 
 	<!-- custom js -->
 	<script type="text/javascript" src="js/custom.js"></script>
+	<script type="text/javascript" src="js/jesse.js"></script>
 	<script type="text/javascript" src="js/duke.js"></script>
 	<script type="text/javascript" src="js/jordan.js"></script>
-	<script type="text/javascript" src="js/jesse.js"></script>
+	
 
 	<!-- google maps API -->
 	<!-- Jesse's key -->

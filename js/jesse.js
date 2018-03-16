@@ -142,11 +142,10 @@ function initMap(){
                 position: place.geometry.location
             });
 
-            console.log(place);
+            // console.log(place);
 
             google.maps.event.addListener(marker, 'click', function() {
-                infowindow.setContent(place.name + '<br/>' + place.vicinity + '<br/>' + '<a <href="">Get direction</a>');
-                // infowindow.setContent(place.formatted_address);
+                infowindow.setContent(place.name + '<br/>' + place.vicinity + '<br/>' + '<a href="">Get direction</a>');
                 infowindow.open(map, this);
             });
 
@@ -162,6 +161,8 @@ function initMap(){
         setupClickListener('changetype-lodging', ['lodging']);
         setupClickListener('changetype-park', ['park']);
         setupClickListener('changetype-restaurant', ['restaurant']);
+
+        directions();
 
     }); /* /autoComplete event listener */
 
