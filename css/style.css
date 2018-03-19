@@ -34,11 +34,12 @@
         height: 20px;
         color: white; }
     #wrapper #homepage #logo {
-      width: 110px;
-      height: 110px;
       border-radius: 10px;
       background-image: url("../img/logo.svg");
-      margin-bottom: 120px; }
+      margin-bottom: 120px;
+      background-color: #F1C40F;
+      width: 20em;
+      height: 20em; }
     #wrapper #homepage h1 {
       color: #FFFFFF;
       font-size: 20px; }
@@ -68,40 +69,28 @@
         width: 310px;
         height: 38px;
         border-radius: 10px;
-        border-style: none; }
-      #wrapper #formContent #searchContainer #submitBtn {
-        width: 40px;
-        height: 41px;
-        border-radius: 10px;
         border-style: none;
-        margin: 0 auto;
-        padding: 0;
-        display: inline-block;
-        line-height: 42px;
-        text-align: center;
-        background-color: #fe8c00; }
-        #wrapper #formContent #searchContainer #submitBtn .fa-search {
-          width: 20px;
-          height: 20px;
-          color: #FFF; }
+        text-align: center; }
     #wrapper #formContent #map {
       width: 100%;
       height: 505px; }
+      #wrapper #formContent #map #infowindow-content {
+        display: inline; }
+    #wrapper #formContent #infowindow-content {
+      display: none; }
     #wrapper #formContent #optionContainer {
       width: 375px;
       height: 101.5px;
       background-color: #F1C40F;
-      text-align: center; }
+      text-align: center;
+      display: flex;
+      align-items: center; }
       #wrapper #formContent #optionContainer label {
-        width: 30%;
-        height: 100%;
-        margin: 0; }
+        margin: 15px; }
         #wrapper #formContent #optionContainer label .iconContainer {
           width: 55px;
           height: 55px;
           background-color: #878787;
-          margin-top: 10px;
-          margin-bottom: 5px;
           border-radius: 10px;
           display: flex;
           align-items: center; }
@@ -117,8 +106,6 @@
             width: 40px;
             height: 40px;
             color: #FFF; }
-        #wrapper #formContent #optionContainer label p {
-          font-size: 12px; }
       #wrapper #formContent #optionContainer label > input {
         /* HIDE RADIO */
         visibility: hidden;
@@ -128,58 +115,5 @@
       #wrapper #formContent #optionContainer label > input:checked + div {
         /* (RADIO CHECKED) IMAGE STYLES */
         background-color: #fe8c00; }
-  #wrapper #modalContainer {
-    width: 375px;
-    height: 667px;
-    position: absolute;
-    top: 0px;
-    display: none;
-    background-color: rgba(0, 15, 30, 0.5); }
-    #wrapper #modalContainer #imgContainer {
-      width: 355px;
-      height: 220px;
-      background-color: pink;
-      margin-top: 10px;
-      border-radius: 10px 10px 0px 0px; }
-    #wrapper #modalContainer #infoContainer {
-      width: 355px;
-      height: 340px;
-      background-color: #FFF; }
-    #wrapper #modalContainer #btnContainer {
-      width: 355px;
-      height: 87px;
-      background-color: #878787;
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-      border-radius: 0px 0px 10px 10px; }
-      #wrapper #modalContainer #btnContainer #getDirectionBtn {
-        margin-left: 10px;
-        margin-right: 0;
-        width: 200px;
-        height: 60px;
-        background-color: #00C95B;
-        border-radius: 10px 0px 0px 10px;
-        display: flex;
-        align-items: center;
-        text-align: center; }
-        #wrapper #modalContainer #btnContainer #getDirectionBtn h2 {
-          font-size: 20px;
-          color: #FFF;
-          margin-bottom: 0; }
-      #wrapper #modalContainer #btnContainer #closeBtn {
-        margin-right: 10px;
-        margin-left: 0;
-        width: 145px;
-        height: 60px;
-        background-color: #E52D27;
-        border-radius: 0px 10px 10px 0px;
-        display: flex;
-        align-items: center;
-        text-align: center; }
-        #wrapper #modalContainer #btnContainer #closeBtn h2 {
-          font-size: 20px;
-          color: #FFF;
-          margin-bottom: 0; }
 
 /*# sourceMappingURL=style.css.map */

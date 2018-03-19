@@ -55,25 +55,7 @@ module.exports = function(grunt){
                     "css/style.css":"sass/style.scss"
                 }
             }
-        }
-          connect: {
-            livereload: {
-              options: {
-                port: 9000,
-                hostname: 'localhost',
-                middleware: function(connect, options, middlewares) {
-                  middlewares.unshift(function(req, res, next) {
-                      res.setHeader('Access-Control-Allow-Origin', '*');
-                      res.setHeader('Access-Control-Allow-Methods', '*');
-                      next();
-                  });
-
-                  return middlewares;
-                }
-              }
-            }
-          }
-        
+        }   
     });
 
     grunt.loadNpmTasks('grunt-contrib-jshint');
