@@ -9,30 +9,6 @@
 	<script defer src="https://use.fontawesome.com/releases/v5.0.8/js/all.js"></script>
 	<!-- custom stylesheet -->
 	<link rel="stylesheet" type="text/css" href="css/style.css">
-	<style>
-
-		/*sorry Duke I put any styles i changed or added to in here so you could fix them up later / see what they are*/
-
-		#infowindow-content {
-        	display: none;
-        }
-
-        #map #infowindow-content {
-       		display: inline;
-        }
-
-        #logo{
-        	background-image: url('img/logo.svg');
-        	background-color: #F1C40F !important;
-        	width: 20em !important;
-        	height: 20em !important;
-
-        }
-        #formInput{
-			text-align: center;
-        }
-
-	</style>
 </head>
 <body>
 	
@@ -58,11 +34,9 @@
 				<div id="searchContainer">
 					<form id="APIform">
 						<input class="" id="formInput" name="ac" type="text" size="40">
-						<!-- <button type="button"  id="submitBtn"><i class="fas fa-search"></i></button> -->
 					</form>
 				</div>			
-
-
+			
 			<!-- map -->
 			<div id="map"><div id="directionInfo"></div></div> 
 			<div id="infowindow-content">
@@ -76,38 +50,35 @@
 					<label>
 				  		<input id="changetype-lodging" class="radioBtn" type="radio" name="type" value="lodging">
 				  		<div class="iconContainer"><i class="fas fa-bed"></i></div>
-				  		<!-- <p>ACCOMMODATION</p> -->
 					</label>
 					<label>
 				  		<input id="changetype-park" class="radioBtn" type="radio" name="type" value="park">
 				  		<div class="iconContainer"><i class="fas fa-tree"></i></div>
-				  		<!-- <p>PARKS</p> -->
 					</label>
 					<label>
 				  		<input id="changetype-restaurant" class="radioBtn" type="radio" name="type" value="restaurant">
 				  		<div class="iconContainer"><i class="fas fa-utensils"></i></div>
-				  		<!-- <p>RESTAURANT</p> -->
 					</label>
 				</form>
 			</div>
 		</div> 
+<<<<<<< HEAD
 	
 
+=======
+>>>>>>> ff689d970fa1b669a60b864bb0b54ec2a918d2c2
 
+	</div> 
 
 	<!-- Jquery NPM -->
 	<script type="text/javascript" src="node_modules/jquery/dist/jquery.js"></script>
-
 
 	<!-- custom js -->
 	<script type="text/javascript" src="js/custom.js"></script>
 	<script type="text/javascript" src="js/jesse.js"></script>
 	<script type="text/javascript" src="js/jordan.js"></script>
-	
 	<script type="text/javascript" src="js/duke.js"></script>
 	
-	
-
 	<!-- google maps API -->
 	<!-- Jesse's key -->
 	<script type="text/javascript" src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCyqxMkhc31hKFwW7etsYUkj4PoaO0nSoo&libraries=places&nearbysearch&callback=initMap"></script>

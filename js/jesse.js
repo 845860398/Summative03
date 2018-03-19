@@ -10,6 +10,8 @@ var radioBtnOption = $('.radioBtn')[0];
 // google maps init
 function initMap(){
 
+
+
     var mapDiv = $('#map')[0];
     var startLocation = {lat: -41.6965833, lng: 172.8771047};
     var map;
@@ -159,11 +161,27 @@ function initMap(){
 
                 // get place details for each marker when clicked
                 var placeDetails = 'https://maps.googleapis.com/maps/api/place/details/json?placeid=' + place.place_id + '&key=' + apiKey;
+<<<<<<< HEAD
 
                 infowindow.setContent(place.name + '<br/>' + place.vicinity + '<br/>' + '<span id="getDirections"><a href="#" >Get direction</a></span>');
                 infowindow.open(map, this);
 
                 // get the directions of the place
+=======
+                infowindow.setContent(place.name + '<br/>' + place.vicinity + '<br/>' + '<span id="getDirections"><a href="#"" >Get direction</a></span>');
+                infowindow.open(map, this);
+
+
+                console.log(place.vicinity);
+
+
+
+            
+                console.log(latLng);
+                // var distinationLatLng = 
+                // var destination = 'https://maps.googleapis.com/maps/api/directions/json?origin=75+9th+Ave+New+York,+NY&destination=MetLife+Stadium+1+MetLife+Stadium+Dr+East+Rutherford,+NJ+07073&key=' + apiKey  
+
+>>>>>>> ff689d970fa1b669a60b864bb0b54ec2a918d2c2
                 $('#getDirections').click('click', function() {
                     console.log(place);
                     var destination = 'https://maps.googleapis.com/maps/api/directions/json?origin=' + place + '&destination=' + placeLoc + '&key=' + apiKey;  
@@ -173,7 +191,11 @@ function initMap(){
                     function calculateAndDisplayRoute(directionsService, directionsDisplay) {
                         directionsService.route({
                             origin: place,
+<<<<<<< HEAD
                             destination: placeLoc,
+=======
+                            destination: place.vicinity,
+>>>>>>> ff689d970fa1b669a60b864bb0b54ec2a918d2c2
                             travelMode: 'DRIVING'
                         },
                         function(response, status) {
