@@ -1,16 +1,16 @@
 (function init() {
 	
-	$('#logo').on('click', function() {
+	$('.tapCont').on('click', function() {
 		$('#homepage').hide('hide')
 	});
 
-	// $('#helpButton').on('click', function() {
-	// 	$('#helpContainer').fadeIn(500)
-	// });
+	$('#helpButton').on('click', function() {
+		$('#helpContainer').fadeIn(500)
+	});
 
-	// $('#helpContainer').on('click', function() {
-	// 	$('#helpContainer').fadeOut(500)
-	// });
+	$('#helpContainer').on('click', function() {
+		$('#helpContainer').fadeOut(500)
+	});
 
 	// $('input').on('click', function() {
 	// 	$('#modalContainer').fadeIn(500)

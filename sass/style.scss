@@ -8,6 +8,7 @@
 	height: 667px;
 	margin-top: 1em;
 	position: relative;
+	font-family: 'Questrial', sans-serif;
 
 	#homepage {
 		position: absolute;
@@ -17,7 +18,11 @@
 	    top: 0;
 	    background-color: #f1c40f;
 		text-align: center;
-		// display: none;
+
+		img {
+        		width: 375px;
+        		height: 667px;
+        	}
 
 		#homepage.hide {
 			opacity: 0;
@@ -26,36 +31,44 @@
 			transition: all .75s ease;
 		}
 
-	    #helpButton {
-	    	width: 40px;
-			height: 40px;
-			border-radius: 10px;
-			background-color: #F1C40F;
-			margin: 10px 10px 75px 325px;
-			display: flex;
-			align-items: center;
-			border: solid 2px white;
+		#intCont {
+			width: 375px;
+			height: 667px;
+			position: absolute;
+			z-index: 2;
+			top: 0;
+			
+			#helpButton {
+		    	width: 40px;
+				height: 40px;
+				border-radius: 10px;
+				background-color: #F1C40F;
+				margin: 10px 10px 10px 325px;
+				display: flex;
+				align-items: center;
+				border: solid 2px white;
 
-			.fa-question {
+				
+				.fa-question {
 					width: 20px;
 					height: 20px;
 					color: white;
-				}
-	    }
+				}	
+		    }
 
-	    #logo {
-			border-radius: 10px;
-			background-image: url('../img/logo.svg');
-			margin-bottom: 120px;
-			background-color: #F1C40F;
-        	width: 20em;
-        	height: 20em;
-	    }
-
-	    h1 {
-	    	color: #FFFFFF;
-	    	font-size: 20px;
-	    }
+		    .tapCont {
+		    	width: 375px;
+		    	height: 607px;
+	    	 	
+	    	 	h1 {
+			    	color: #FFFFFF;
+			    	font-size: 20px;
+			    	padding-top: 500px;
+			    	opacity: 0.8;
+		    	}
+		    }
+		   
+		}	    
 	}
 
 	#helpContainer {
@@ -63,15 +76,26 @@
 		height: 100%;
 		background-color: #f1c40f;
 		position: absolute;
-		z-index: 2;
+		z-index: 3;
 		top: 0;
 		display: none;
 
 		#helpContent {
-			width: 345px;
-			height: 637px;
-			margin-top: 15px;
+			width: 80%;
+			height: 60%;
+			margin-top: 4em;
 			text-align: center;
+
+			h2 {
+				font-size: 2.5em;
+				margin-top: 40px;
+				margin-bottom: 15px;
+			}
+
+			p {
+				font-size: 1.24em;
+				margin: 0;
+			}
 		}
 	}
 
