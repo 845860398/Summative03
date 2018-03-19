@@ -189,8 +189,6 @@ function initMap(){
 
                 // get place details for each marker when clicked
                 var placeDetails = 'https://maps.googleapis.com/maps/api/place/details/json?placeid=' + place.place_id + '&key=' + apiKey;
-                console.log(placeLoc);
-
                 infowindow.setContent(place.name + '<br/>' + place.vicinity + '<br/>' + '<span id="getDirections"><a href="#"" >Get direction</a></span>');
                 infowindow.open(map, this);
 
