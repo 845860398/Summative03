@@ -190,7 +190,7 @@ function initMap(){
                 infowindow.setContent(place.name + '<br/>' + place.vicinity + '<br/>' + '<span id="getDirections"><a href="#"" >Get direction</a></span>');
                 infowindow.open(map, this);
 
-                console.log(placeDetails.opening_hours[2]);
+                console.log(place);
             
                 $('#getDirections').click('click', function() {
                     alert('getDirections works');
