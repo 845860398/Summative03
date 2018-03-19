@@ -44,11 +44,12 @@
 	    }
 
 	    #logo {
-	    	width: 110px;
-			height: 110px;
 			border-radius: 10px;
 			background-image: url('../img/logo.svg');
 			margin-bottom: 120px;
+			background-color: #F1C40F;
+        	width: 20em;
+        	height: 20em;
 	    }
 
 	    h1 {
@@ -90,25 +91,7 @@
 				height: 38px;
 				border-radius: 10px;
 				border-style: none;
-			}
-
-			#submitBtn {
-				width: 40px;
-				height: 41px;
-				border-radius: 10px;
-				border-style: none;
-				margin: 0 auto;
-				padding: 0;
-				display: inline-block;
-				line-height: 42px;
 				text-align: center;
-				background-color: #fe8c00;
-
-				.fa-search {
-					width: 20px;
-					height: 20px;
-					color: #FFF;
-				}
 			}
 		}
 
@@ -116,33 +99,30 @@
 			width: 100%;
 			height: 505px;
 
-			// #directionInfo {
-			// 	width: 355px;
-			// 	height: 50px;
-			// 	background-color: rgba(0, 15, 30, 0.5);
-			// 	z-index: 1;
-			// 	top: 0;
-			// 	position: absolute;
-			// }	
+			#infowindow-content {
+	       		display: inline;
+	        }
 		}
+
+		#infowindow-content {
+        	display: none;
+        }
 
 		#optionContainer {
 			width: 375px;
 			height: 101.5px;
 			background-color: #F1C40F;
 			text-align: center;
+			display: flex;
+			align-items: center;
 			
 			label {
-				width: 30%;
-				height: 100%;
-				margin: 0;
+				margin: 15px;
 
 				.iconContainer {
 					width: 55px;
 					height: 55px;
 					background-color: #878787;
-					margin-top: 10px;
-					margin-bottom: 5px;
 					border-radius: 10px;
 					display: flex;
 					align-items: center;
@@ -165,10 +145,6 @@
 						color: #FFF;
 					}
 				}
-
-				p {
-					font-size: 12px;
-				}
 			}
 
 			label > input { /* HIDE RADIO */
@@ -182,74 +158,7 @@
 		}
 	}
 
-	#modalContainer {
-		width: 375px;
-		height: 667px;
-		position: absolute;
-		top: 0px;
-		display: none;
-		background-color: rgba(0, 15, 30, 0.5);
-
-		#imgContainer {
-			width: 355px;
-			height: 220px;
-			background-color: pink;
-			margin-top: 10px;
-			border-radius: 10px 10px 0px 0px;
-		}
-
-		#infoContainer {
-			width: 355px;
-			height: 340px;
-			background-color: #FFF;
-		}
-
-		#btnContainer {
-			width: 355px;
-			height: 87px;
-			background-color: #878787;
-			display: flex;
-			align-items: center;
-			justify-content: space-between;
-			border-radius: 0px 0px 10px 10px;
-
-			#getDirectionBtn {
-				margin-left: 10px;
-				margin-right: 0;
-				width: 200px;
-				height: 60px;
-				background-color: #00C95B;
-				border-radius: 10px 0px 0px 10px;
-				display: flex;
-				align-items: center;
-				text-align: center;
-
-				h2 {
-					font-size: 20px;
-					color: #FFF;
-					margin-bottom: 0;
-				}
-			}
-
-			#closeBtn {
-				margin-right: 10px;
-				margin-left: 0;
-				width: 145px;
-				height: 60px;
-				background-color: #E52D27;
-				border-radius: 0px 10px 10px 0px;
-				display: flex;
-				align-items: center;
-				text-align: center;
-
-				h2 {
-					font-size: 20px;
-					color: #FFF;
-					margin-bottom: 0;
-				}
-			}
-		}
-	}
+	
 
 
 	

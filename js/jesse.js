@@ -200,10 +200,6 @@ function initMap(){
             google.maps.event.addListener(marker, 'click', function() {
 
                 var placeDetails = 'https://maps.googleapis.com/maps/api/place/details/json?placeid=' + place.place_id + '&key=' + apiKey;
-                infowindow.setContent(place.name + '<br/>' + place.vicinity + '<br/>' + '<a href="">Get direction</a>');
-                infowindow.open(map, this);
-                console.log(placeDetails.opening_hours.weekday_text);
-
                 infowindow.setContent(place.name + '<br/>' + place.vicinity + '<br/>' + '<span id="getDirections"><a href="#"" >Get direction</a></span>');
                 infowindow.open(map, this);
             
