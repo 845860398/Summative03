@@ -159,6 +159,8 @@ function initMap(){
             // click event on markers to show info
             google.maps.event.addListener(marker, 'click', function() {
 
+                
+
                 // get place details for each marker when clicked
                 var placeDetails = 'https://maps.googleapis.com/maps/api/place/details/json?placeid=' + place.place_id + '&key=' + apiKey;
 

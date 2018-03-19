@@ -6,7 +6,8 @@
   width: 375px;
   height: 667px;
   margin-top: 1em;
-  position: relative; }
+  position: relative;
+  font-family: 'Questrial', sans-serif; }
   #wrapper #homepage {
     position: absolute;
     height: 100%;
@@ -15,47 +16,61 @@
     top: 0;
     background-color: #f1c40f;
     text-align: center; }
+    #wrapper #homepage img {
+      width: 375px;
+      height: 667px; }
     #wrapper #homepage #homepage.hide {
       opacity: 0;
       height: 100%;
       width: 1%;
       transition: all .75s ease; }
-    #wrapper #homepage #helpButton {
-      width: 40px;
-      height: 40px;
-      border-radius: 10px;
-      background-color: #F1C40F;
-      margin: 10px 10px 75px 325px;
-      display: flex;
-      align-items: center;
-      border: solid 2px white; }
-      #wrapper #homepage #helpButton .fa-question {
-        width: 20px;
-        height: 20px;
-        color: white; }
-    #wrapper #homepage #logo {
-      border-radius: 10px;
-      background-image: url("../img/logo.svg");
-      margin-bottom: 120px;
-      background-color: #F1C40F;
-      width: 20em;
-      height: 20em; }
-    #wrapper #homepage h1 {
-      color: #FFFFFF;
-      font-size: 20px; }
+    #wrapper #homepage #intCont {
+      width: 375px;
+      height: 667px;
+      position: absolute;
+      z-index: 2;
+      top: 0; }
+      #wrapper #homepage #intCont #helpButton {
+        width: 40px;
+        height: 40px;
+        border-radius: 10px;
+        background-color: #F1C40F;
+        margin: 10px 10px 10px 325px;
+        display: flex;
+        align-items: center;
+        border: solid 2px white; }
+        #wrapper #homepage #intCont #helpButton .fa-question {
+          width: 20px;
+          height: 20px;
+          color: white; }
+      #wrapper #homepage #intCont .tapCont {
+        width: 375px;
+        height: 607px; }
+        #wrapper #homepage #intCont .tapCont h1 {
+          color: #FFFFFF;
+          font-size: 20px;
+          padding-top: 500px;
+          opacity: 0.8; }
   #wrapper #helpContainer {
     width: 100%;
     height: 100%;
     background-color: #f1c40f;
     position: absolute;
-    z-index: 2;
+    z-index: 3;
     top: 0;
     display: none; }
     #wrapper #helpContainer #helpContent {
-      width: 345px;
-      height: 637px;
-      margin-top: 15px;
+      width: 80%;
+      height: 60%;
+      margin-top: 4em;
       text-align: center; }
+      #wrapper #helpContainer #helpContent h2 {
+        font-size: 2.5em;
+        margin-top: 40px;
+        margin-bottom: 15px; }
+      #wrapper #helpContainer #helpContent p {
+        font-size: 1.24em;
+        margin: 0; }
   #wrapper #formContent {
     height: 100%;
     width: 100%; }
