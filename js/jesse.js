@@ -10,6 +10,8 @@ var radioBtnOption = $('.radioBtn')[0];
 // google maps init
 function initMap(){
 
+
+
     var mapDiv = $('#map')[0];
     var startLocation = {lat: -41.6965833, lng: 172.8771047};
     var map;
@@ -193,14 +195,14 @@ function initMap(){
                 infowindow.open(map, this);
 
 
-                console.log(place);
+                console.log(place.vicinity);
 
 
 
             
                 console.log(latLng);
                 // var distinationLatLng = 
-                var destination = 'https://maps.googleapis.com/maps/api/directions/json?origin=75+9th+Ave+New+York,+NY&destination=MetLife+Stadium+1+MetLife+Stadium+Dr+East+Rutherford,+NJ+07073&key=' + apiKey  
+                // var destination = 'https://maps.googleapis.com/maps/api/directions/json?origin=75+9th+Ave+New+York,+NY&destination=MetLife+Stadium+1+MetLife+Stadium+Dr+East+Rutherford,+NJ+07073&key=' + apiKey  
 
                 $('#getDirections').click('click', function() {
                     
@@ -209,8 +211,8 @@ function initMap(){
 
                     function calculateAndDisplayRoute(directionsService, directionsDisplay) {
                         directionsService.route({
-                            origin: {lat: -41.280908, lng: 174.778188},
-                            destination: {lat: -41.281641, lng: 174.777383},
+                            origin: place,
+                            destination: place.vicinity,
                             travelMode: 'DRIVING'
                         },
                         function(response, status) {
