@@ -48,6 +48,36 @@ function initMap(){
         anchorPoint: new google.maps.Point(0, -29)
     });// this is ok
 
+    // var map, infoWindow;
+    // infoWindow = new google.maps.InfoWindow;
+
+    //     if (navigator.geolocation) {
+    //       navigator.geolocation.getCurrentPosition(function(position) {
+    //         var pos = {
+    //           lat: position.coords.latitude,
+    //           lng: position.coords.longitude
+    //         };
+
+    //         infoWindow.setPosition(pos);
+    //         infoWindow.setContent('Location found.');
+    //         infoWindow.open(map);
+    //         map.setCenter(pos);
+    //       }, function() {
+    //         handleLocationError(true, infoWindow, map.getCenter());
+    //       });
+    //     } else {
+    //       // Browser doesn't support Geolocation
+    //       handleLocationError(false, infoWindow, map.getCenter());
+    //     }
+
+    //   function handleLocationError(browserHasGeolocation, infoWindow, pos) {
+    //     infoWindow.setPosition(pos);
+    //     infoWindow.setContent(browserHasGeolocation ?
+    //                           'Error: The Geolocation service failed.' :
+    //                           'Error: Your browser doesn\'t support geolocation.');
+    //     infoWindow.open(map);
+    // }
+
     // autoComplete event
     autocomplete.addListener('place_changed', function() {
 
@@ -128,6 +158,7 @@ function initMap(){
                 zoom: 15,
                 disableDefaultUI: true
             });
+
         });// /radio Value
 
         // create markers from results
@@ -167,12 +198,22 @@ function initMap(){
 
             // click event on markers to show info
             google.maps.event.addListener(marker, 'click', function() {
+
                 var placeDetails = 'https://maps.googleapis.com/maps/api/place/details/json?placeid=' + place.place_id + '&key=' + apiKey;
                 infowindow.setContent(place.name + '<br/>' + place.vicinity + '<br/>' + '<a href="">Get direction</a>');
                 infowindow.open(map, this);
                 console.log(placeDetails.opening_hours.weekday_text);
 
+                infowindow.setContent(place.name + '<br/>' + place.vicinity + '<br/>' + '<span id="getDirections"><a href="#"" >Get direction</a></span>');
+                infowindow.open(map, this);
+            
+                $('#getDirections').click('click', function() {
+                    alert('getDirections works');
+                });
+
+
             }); //  /info click event
+
 
         }// /createMarker
 
