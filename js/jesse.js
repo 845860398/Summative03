@@ -13,12 +13,13 @@ function initMap(){
     var mapDiv = $('#map')[0];
     var startLocation = {lat: -41.6965833, lng: 172.8771047};
     var map;
+    var apiKey = 'AIzaSyCyqxMkhc31hKFwW7etsYUkj4PoaO0nSoo';
 
     // landing map
     map = new google.maps.Map(document.getElementById('map'), {
         center: startLocation,
-        zoom: 5,
-        disableDefaultUI: true
+        zoom: 5
+        // disableDefaultUI: true
     });// /map
 
     // assigning to radios/
@@ -93,8 +94,8 @@ function initMap(){
                 ].join(' ');
             }// /if
 
-            console.log(place);
-            console.log(place.photos);
+            // console.log(place);
+            // console.log(place.photos);
 
             infowindowContent.children['place-icon'].src = place.icon;
             infowindowContent.children['place-name'].textContent = place.name;
@@ -110,12 +111,11 @@ function initMap(){
         // radio value selection + icons
         $('input[type=radio]').click(function () {
 
-            console.log(this.value);
+            // console.log(this.value);
 
-            var apiKey = 'AIzaSyCyqxMkhc31hKFwW7etsYUkj4PoaO0nSoo'
             var placesNearByQuery = 'https://maps.googleapis.com/maps/api/place/textsearch/xml?query=' + this.value + '+in+' + place.name + '&key=' + apiKey;
-
-            console.log(placesNearByQuery);
+            
+            // console.log(placesNearByQuery);
 
             service.nearbySearch({
                 location: latLng,
@@ -163,12 +163,15 @@ function initMap(){
                 placeId: place.place_id
             }); // /marker
 
-            console.log(place.place_id);
+            // console.log(place.place_id);
 
             // click event on markers to show info
             google.maps.event.addListener(marker, 'click', function() {
+                var placeDetails = 'https://maps.googleapis.com/maps/api/place/details/json?placeid=' + place.place_id + '&key=' + apiKey;
                 infowindow.setContent(place.name + '<br/>' + place.vicinity + '<br/>' + '<a href="">Get direction</a>');
                 infowindow.open(map, this);
+                console.log(placeDetails.opening_hours.weekday_text);
+
             }); //  /info click event
 
         }// /createMarker
