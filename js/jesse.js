@@ -48,36 +48,6 @@ function initMap(){
         anchorPoint: new google.maps.Point(0, -29)
     });// this is ok
 
-    // Geolocation doesn't work here
-    // var map, infoWindow;
-    // infoWindow = new google.maps.InfoWindow;
-
-    //     if (navigator.geolocation) {
-    //       navigator.geolocation.getCurrentPosition(function(position) {
-    //         var pos = {
-    //           lat: position.coords.latitude,
-    //           lng: position.coords.longitude
-    //         };
-
-    //         infoWindow.setPosition(pos);
-    //         infoWindow.setContent('Location found.');
-    //         infoWindow.open(map);
-    //         map.setCenter(pos);
-    //       }, function() {
-    //         handleLocationError(true, infoWindow, map.getCenter());
-    //       });
-    //     } else {
-    //       // Browser doesn't support Geolocation
-    //       handleLocationError(false, infoWindow, map.getCenter());
-    //     }
-
-    //   function handleLocationError(browserHasGeolocation, infoWindow, pos) {
-    //     infoWindow.setPosition(pos);
-    //     infoWindow.setContent(browserHasGeolocation ?
-    //                           'Error: The Geolocation service failed.' :
-    //                           'Error: Your browser doesn\'t support geolocation.');
-    //     infoWindow.open(map);
-    // }
 
     // autoComplete event
     autocomplete.addListener('place_changed', function() {
@@ -125,13 +95,14 @@ function initMap(){
                 ].join(' ');
             }// /if
 
-            console.log(place);
+            console.log(marker);
             // console.log(place.photos);
 
             infowindowContent.children['place-icon'].src = place.icon;
             infowindowContent.children['place-name'].textContent = place.name;
             infowindowContent.children['place-address'].textContent = address;
             infowindow.open(map, marker);
+
         }); // /marker.eventListener
 
         var myLat = place.geometry.location.lat();
@@ -162,6 +133,7 @@ function initMap(){
 
         });// /radio Value
 
+
         // create markers from results
         function callback(results, status) {
             if (status === google.maps.places.PlacesServiceStatus.OK) {
@@ -187,26 +159,19 @@ function initMap(){
 
                 // get place details for each marker when clicked
                 var placeDetails = 'https://maps.googleapis.com/maps/api/place/details/json?placeid=' + place.place_id + '&key=' + apiKey;
-                console.log(placeLoc);
 
-                infowindow.setContent(place.name + '<br/>' + place.vicinity + '<br/>' + '<span id="getDirections"><a href="#"" >Get direction</a></span>');
+                infowindow.setContent(place.name + '<br/>' + place.vicinity + '<br/>' + '<span id="getDirections"><a href="#" >Get direction</a></span>');
                 infowindow.open(map, this);
 
-                // console.log(placeDetails.opening_hours[2]);
-            
-                console.log(latLng);
-                // var distinationLatLng = 
-                var destination = 'https://maps.googleapis.com/maps/api/directions/json?origin=75+9th+Ave+New+York,+NY&destination=MetLife+Stadium+1+MetLife+Stadium+Dr+East+Rutherford,+NJ+07073&key=' + apiKey  
-
                 $('#getDirections').click('click', function() {
-                    
+                    var destination = 'https://maps.googleapis.com/maps/api/directions/json?origin=' + place + '&destination=' + placeLoc + '&key=' + apiKey;  
                     var directionsService = new google.maps.DirectionsService;
-                    var directionsDisplay = new google.maps.DirectionsRenderer;
+                    var directionsDisplay = new google.maps.DirectionsRenderer; 
 
                     function calculateAndDisplayRoute(directionsService, directionsDisplay) {
                         directionsService.route({
-                            origin: {lat: -41.280908, lng: 174.778188},
-                            destination: {lat: -41.281641, lng: 174.777383},
+                            origin: place,
+                            destination: placeLoc,
                             travelMode: 'DRIVING'
                         },
                         function(response, status) {
@@ -217,10 +182,9 @@ function initMap(){
                                 }
                         });
                     }
-                    calculateAndDisplayRoute();
-                    directionsDisplay.setMap(map);
-                });
+                    calculateAndDisplayRoute(directionsService, directionsDisplay);
 
+                }); // get directions
             }); //  /info click event
 
 
