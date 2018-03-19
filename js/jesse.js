@@ -48,6 +48,7 @@ function initMap(){
         anchorPoint: new google.maps.Point(0, -29)
     });// this is ok
 
+    // Geolocation doesn't work here
     // var map, infoWindow;
     // infoWindow = new google.maps.InfoWindow;
 
@@ -124,7 +125,7 @@ function initMap(){
                 ].join(' ');
             }// /if
 
-            // console.log(place);
+            console.log(place);
             // console.log(place.photos);
 
             infowindowContent.children['place-icon'].src = place.icon;
@@ -186,16 +187,43 @@ function initMap(){
 
                 // get place details for each marker when clicked
                 var placeDetails = 'https://maps.googleapis.com/maps/api/place/details/json?placeid=' + place.place_id + '&key=' + apiKey;
+                console.log(placeLoc);
 
                 infowindow.setContent(place.name + '<br/>' + place.vicinity + '<br/>' + '<span id="getDirections"><a href="#"" >Get direction</a></span>');
                 infowindow.open(map, this);
 
-                console.log(place);
-            
-                $('#getDirections').click('click', function() {
-                    alert('getDirections works');
-                });
 
+                console.log(place);
+
+
+
+            
+                console.log(latLng);
+                // var distinationLatLng = 
+                var destination = 'https://maps.googleapis.com/maps/api/directions/json?origin=75+9th+Ave+New+York,+NY&destination=MetLife+Stadium+1+MetLife+Stadium+Dr+East+Rutherford,+NJ+07073&key=' + apiKey  
+
+                $('#getDirections').click('click', function() {
+                    
+                    var directionsService = new google.maps.DirectionsService;
+                    var directionsDisplay = new google.maps.DirectionsRenderer;
+
+                    function calculateAndDisplayRoute(directionsService, directionsDisplay) {
+                        directionsService.route({
+                            origin: {lat: -41.280908, lng: 174.778188},
+                            destination: {lat: -41.281641, lng: 174.777383},
+                            travelMode: 'DRIVING'
+                        },
+                        function(response, status) {
+                            if (status === 'OK') {
+                                directionsDisplay.setDirections(response);
+                            } else {
+                                window.alert('Directions request failed due to ' + status);
+                                }
+                        });
+                    }
+                    calculateAndDisplayRoute();
+                    directionsDisplay.setMap(map);
+                });
 
             }); //  /info click event
 
