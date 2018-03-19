@@ -163,7 +163,9 @@ function initMap(){
                 infowindow.setContent(place.name + '<br/>' + place.vicinity + '<br/>' + '<span id="getDirections"><a href="#" >Get direction</a></span>');
                 infowindow.open(map, this);
 
+                // get the directions of the place
                 $('#getDirections').click('click', function() {
+                    console.log(place);
                     var destination = 'https://maps.googleapis.com/maps/api/directions/json?origin=' + place + '&destination=' + placeLoc + '&key=' + apiKey;  
                     var directionsService = new google.maps.DirectionsService;
                     var directionsDisplay = new google.maps.DirectionsRenderer; 
@@ -183,17 +185,11 @@ function initMap(){
                         });
                     }
                     calculateAndDisplayRoute(directionsService, directionsDisplay);
+                }); // get the directions
 
-                }); // get directions
+
             }); //  /info click event
-
-
         }// /createMarker
-
-    
-
      }); /* /autoComplete event listener */
-
-
 } /* /initMap */
 
