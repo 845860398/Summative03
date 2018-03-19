@@ -170,21 +170,6 @@ function initMap(){
             }
         }// /callback
 
-        // ---- this code creates custom photo markers (the other create marker function must be commented out)
-        // function createMarker(place) {
-        //     var photos = place.photos;
-        //     if (!photos) {
-        //         return;
-        //     }
-
-        //     var marker = new google.maps.Marker({
-        //         map: map,
-        //         position: place.geometry.location,
-        //         title: place.name,
-        //         icon: photos[0].getUrl({'maxWidth': 35, 'maxHeight': 35})
-        //     });
-        // }
-
         // create markers for types
         function createMarker(place) {
             var placeLoc = place.geometry.location;
@@ -199,13 +184,13 @@ function initMap(){
             // click event on markers to show info
             google.maps.event.addListener(marker, 'click', function() {
 
+                // get place details for each marker when clicked
                 var placeDetails = 'https://maps.googleapis.com/maps/api/place/details/json?placeid=' + place.place_id + '&key=' + apiKey;
-                infowindow.setContent(place.name + '<br/>' + place.vicinity + '<br/>' + '<a href="">Get direction</a>');
-                infowindow.open(map, this);
-                console.log(placeDetails.opening_hours.weekday_text);
 
                 infowindow.setContent(place.name + '<br/>' + place.vicinity + '<br/>' + '<span id="getDirections"><a href="#"" >Get direction</a></span>');
                 infowindow.open(map, this);
+
+                console.log(placeDetails.opening_hours[2]);
             
                 $('#getDirections').click('click', function() {
                     alert('getDirections works');
