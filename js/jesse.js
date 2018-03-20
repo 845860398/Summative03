@@ -208,28 +208,39 @@ function initMap(){
                 var distinationLatLng = 
                 var destination = 'https://maps.googleapis.com/maps/api/directions/json?origin=75+9th+Ave+New+York,+NY&destination=MetLife+Stadium+1+MetLife+Stadium+Dr+East+Rutherford,+NJ+07073&key=' + apiKey  
 
+                // get the directions of the place
                 $('#getDirections').click('click', function() {
-                    
+                    var destination = 'https://maps.googleapis.com/maps/api/directions/json?origin=' + currentLoc + '&destination=' + placeLoc + '&key=' + apiKey;  
                     var directionsService = new google.maps.DirectionsService;
                     var directionsDisplay = new google.maps.DirectionsRenderer;
+                    var currentLoc = {lat: -41.279098, lng: 174.779838};
 
-                    function calculateAndDisplayRoute(directionsService, directionsDisplay) {
-                        directionsService.route({
-                            origin: {lat: -41.280908, lng: 174.778188},
-                            destination: {lat: -41.281641, lng: 174.777383},
-                            travelMode: 'DRIVING'
-                        },
-                        function(response, status) {
-                            if (status === 'OK') {
-                                directionsDisplay.setDirections(response);
-                            } else {
-                                window.alert('Directions request failed due to ' + status);
-                                }
-                        });
-                    }
-                    calculateAndDisplayRoute();
-                    directionsDisplay.setMap(map);
-                });
+                    var marker = new google.maps.Marker({
+                      position: currentLoc,
+                      map: map
+                    });
+
+                    var request = {
+                        origin: placeLoc,
+                        destination: currentLoc,
+                        travelMode: google.maps.TravelMode.DRIVING
+                    };
+
+                    directionsService.route(request, function (response, status) {
+                        if (status == google.maps.DirectionsStatus.OK) {
+                            directionsDisplay.setDirections(response);
+                            directionsDisplay.setOptions({
+                                suppressMarkers: true
+                            });
+                            console.log(placeLoc);
+                        } 
+                        else {
+                            console.log("directionsService : " + status);
+                        }
+                    });
+
+
+                }); /* get the directions */
 
             }); //  /info click event
 
