@@ -11,8 +11,12 @@ var radioBtnOption = $('.radioBtn')[0];
 
 // google maps init
 function initMap(){
-
-
+    var directionsService = new google.maps.DirectionsService;
+    var directionsDisplay = new google.maps.DirectionsRenderer({
+        suppressMarkers: true
+    });
+    var currentLoc = {lat: -41.279098, lng: 174.779838};
+    directionsDisplay.setMap(map);
 
     var mapDiv = $('#map')[0];
     var startLocation = {lat: -41.6965833, lng: 172.8771047};
@@ -137,7 +141,7 @@ function initMap(){
             map = new google.maps.Map(document.getElementById('map'), {
                 center: latLng,
                 zoom: 15,
-                disableDefaultUI: true
+                disableDefaultUI: false
             });
 
         });// /radio Value
@@ -154,19 +158,19 @@ function initMap(){
 
         // create markers for types
         function createMarker(place) {
-            var placeLoc = place.geometry.location;
+            var placeLoc = {lat: place.geometry.location.lat(), lng: place.geometry.location.lng()};
             var marker = new google.maps.Marker({
                 map: map,
                 position: place.geometry.location,
                 placeId: place.place_id
             }); // /marker
-
+            console.log(place.geometry);
             // console.log(place.place_id);
 
             // click event on markers to show info
             google.maps.event.addListener(marker, 'click', function() {
 
-            console.log(place);
+            // console.log(place);
 
                 // get place details for each marker when clicked
                 var placeDetails = 'https://maps.googleapis.com/maps/api/place/details/json?placeid=' + place.place_id + '&key=' + apiKey;
@@ -225,18 +229,13 @@ function initMap(){
                 //     console.log(data);
                 // });
 
-
-
                 // console.log(placeDetails);
-                infowindow.setContent(place.photos[0].html_attributions + place.name + '<br/>' + place.vicinity + '<br/>' + 'Rating: ' + place.rating + '<br/>' + '<span id="getDirections"><a href="#"" ><i class="fas fa-compass"></i>Directions</a></span>');
+                infowindow.setContent(place.name + '<br/>' + place.vicinity + '<br/>' + 'Rating: ' + place.rating + '<br/>' + '<span class="getDirections"><a href="#"" ><i class="fas fa-compass"></i>Directions</a></span>');
                 infowindow.open(map, this);
 
                 // get the directions of the place
-                $('#getDirections').click('click', function() {
-                    var destination = 'https://maps.googleapis.com/maps/api/directions/json?origin=' + currentLoc + '&destination=' + placeLoc + '&key=' + apiKey;  
-                    var directionsService = new google.maps.DirectionsService;
-                    var directionsDisplay = new google.maps.DirectionsRenderer;
-                    var currentLoc = {lat: -41.279098, lng: 174.779838};
+                $('.getDirections').click('click', function() {
+                    var getDirections = 'https://maps.googleapis.com/maps/api/directions/json?origin=' + placeLoc + '&destination=' + currentLoc + '&key=' + apiKey;  
 
                     var marker = new google.maps.Marker({
                       position: currentLoc,
@@ -261,70 +260,7 @@ function initMap(){
                             console.log("directionsService : " + status);
                         }
                     });
-
-
-                }); /* get the directions */
-
-                // console.log(placeDetails);
-
-                console.log(placeDetails);
-
-
-
-                // function reqListener(){
-                //     console.log(this.responseText);
-                // }
-
-                // var oReq = new XMLHttpRequest();
-                // oReq.addEventListener('load', reqListener);
-                // oReq.open('GET', placeDetails);
-
-                // console.log(oReq);
-
-
-
-
-
-                // $.getJSON( placeDetails, function(data){
-                //     var items = [];
-                //     if(!empty($_POST)){
-                //     console.log(items);
-                // }
-                // });
-
-                
-
-                // console.log(place.vicinity);
-            
-                // console.log(latLng);
-                // var distinationLatLng = 
-                // var destination = 'https://maps.googleapis.com/maps/api/directions/json?origin=75+9th+Ave+New+York,+NY&destination=MetLife+Stadium+1+MetLife+Stadium+Dr+East+Rutherford,+NJ+07073&key=' + apiKey  
-
-                // $('#getDirections').click('click', function() {
-                //     console.log(place);
-                //     var destination = 'https://maps.googleapis.com/maps/api/directions/json?origin=' + place + '&destination=' + placeLoc + '&key=' + apiKey;  
-                //     var directionsService = new google.maps.DirectionsService;
-                //     var directionsDisplay = new google.maps.DirectionsRenderer; 
-
-                //     function calculateAndDisplayRoute(directionsService, directionsDisplay) {
-                //         directionsService.route({
-                //             origin: place,
-                //             destination: placeLoc,
-                //             destination: place.vicinity,
-                //             travelMode: 'DRIVING'
-                //         },
-                //         function(response, status) {
-                //             if (status === 'OK') {
-                //                 directionsDisplay.setDirections(response);
-                //             } else {
-                //                 window.alert('Directions request failed due to ' + status);
-                //                 }
-                //         });
-                //     }
-                //     calculateAndDisplayRoute(directionsService, directionsDisplay);
-                // }); // get the directions
-
-
+                }); /* /get directions */
             }); //  /info click event
         }// /createMarker
      }); /* /autoComplete event listener */
