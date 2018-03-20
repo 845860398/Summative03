@@ -231,10 +231,6 @@ function initMap(){
                 infowindow.setContent(place.photos[0].html_attributions + place.name + '<br/>' + place.vicinity + '<br/>' + 'Rating: ' + place.rating + '<br/>' + '<span id="getDirections"><a href="#"" ><i class="fas fa-compass"></i>Directions</a></span>');
                 infowindow.open(map, this);
 
-                console.log(latLng);
-                var distinationLatLng = 
-                var destination = 'https://maps.googleapis.com/maps/api/directions/json?origin=75+9th+Ave+New+York,+NY&destination=MetLife+Stadium+1+MetLife+Stadium+Dr+East+Rutherford,+NJ+07073&key=' + apiKey  
-
                 // get the directions of the place
                 $('#getDirections').click('click', function() {
                     var destination = 'https://maps.googleapis.com/maps/api/directions/json?origin=' + currentLoc + '&destination=' + placeLoc + '&key=' + apiKey;  
