@@ -1,11 +1,13 @@
 
 
-console.log('A');
+// console.log('A');
 
 // global variables
 var input = $('#formInput')[0];
 var submitBtn = $('#submitBtn')[0];
 var radioBtnOption = $('.radioBtn')[0];
+
+
 
 // google maps init
 function initMap(){
@@ -97,6 +99,7 @@ function initMap(){
                 ].join(' ');
             }// /if
 
+            console.log(address);
             console.log(marker);
             // console.log(place.photos);
 
@@ -112,6 +115,8 @@ function initMap(){
         var latLng = {lat: myLat, lng: myLong};
         var service = new google.maps.places.PlacesService(map);
 
+
+
         // radio value selection + icons
         $('input[type=radio]').click(function () {
 
@@ -119,6 +124,8 @@ function initMap(){
 
             var placesNearByQuery = 'https://maps.googleapis.com/maps/api/place/textsearch/xml?query=' + this.value + '+in+' + place.name + '&key=' + apiKey;
             
+
+
             // console.log(placesNearByQuery);
 
             service.nearbySearch({
@@ -159,13 +166,99 @@ function initMap(){
             // click event on markers to show info
             google.maps.event.addListener(marker, 'click', function() {
 
-                
+            console.log(place);
 
                 // get place details for each marker when clicked
                 var placeDetails = 'https://maps.googleapis.com/maps/api/place/details/json?placeid=' + place.place_id + '&key=' + apiKey;
 
-                infowindow.setContent(place.name + '<br/>' + place.vicinity + '<br/>' + '<span id="getDirections"><a href="#"" ><i class="fas fa-compass"></i>Directions</a></span>');
+                // requests from json
+
+                // $.getJSON(placeDetails).done(function(data){
+                //     console.log(data);
+                // });
+
+                // first try:
+                // $.get(placeDetails).done(function (data){
+                //     console.log(data);
+                // });
+
+                // second try:
+                // var xhr = new XMLHttpRequest();
+                // xhr.open('GET', placeDetails, true);
+                // xhr.onload = function(){
+                //     console.log(xhr.responseText);
+                // };
+                // xhr.send();
+
+                // third try:
+                // fetch(placeDetails).then(function (response){
+                //     return response.json();
+                // }).then(function(json){
+                //     console.log(json);
+                // });
+
+                // fourth try:
+                // $.ajax({
+                //     type: 'GET',
+                //     url: placeDetails
+                // }).done(function (data){
+                //     console.log(data);
+                // });
+
+                // fifth try:
+                // var xhr = new XMLHttpRequest();
+                // xhr.open("GET", placeDetails, true);
+                // xhr.setRequestHeader("X-My-Custom-Header", "some value");
+                // xhr.onload = function () {
+                //     console.log(xhr.responseText);
+                // };
+                // xhr.send();
+
+                // sixth try:
+                // $.ajax({
+                //     xhrFields: {
+                //         withCredentials: true
+                //     },
+                //     type: "GET",
+                //     url: placeDetails
+                // }).done(function (data) {
+                //     console.log(data);
+                // });
+
+
+
+                // console.log(placeDetails);
+                infowindow.setContent(place.photos[0].html_attributions + place.name + '<br/>' + place.vicinity + '<br/>' + 'Rating: ' + place.rating + '<br/>' + '<span id="getDirections"><a href="#"" ><i class="fas fa-compass"></i>Directions</a></span>');
                 infowindow.open(map, this);
+
+                // console.log(placeDetails);
+
+                console.log(placeDetails);
+
+
+
+                // function reqListener(){
+                //     console.log(this.responseText);
+                // }
+
+                // var oReq = new XMLHttpRequest();
+                // oReq.addEventListener('load', reqListener);
+                // oReq.open('GET', placeDetails);
+
+                // console.log(oReq);
+
+
+
+
+
+                // $.getJSON( placeDetails, function(data){
+                //     var items = [];
+                //     if(!empty($_POST)){
+                //     console.log(items);
+                // }
+                // });
+
+                
 
                 // console.log(place.vicinity);
             
