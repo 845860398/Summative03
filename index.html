@@ -1,21 +1,19 @@
 <!DOCTYPE html>
 <html>
 <head>
-	<title></title>
-
+	<title>omw</title>
 	<!-- bootstrap css npm -->
 	<link rel="stylesheet" href="node_modules/bootstrap/dist/css/bootstrap.css">
-	<!-- font awesome cdn -->
-	<script defer src="https://use.fontawesome.com/releases/v5.0.8/js/all.js"></script>
 	<!-- custom stylesheet -->
 	<link rel="stylesheet" type="text/css" href="css/style.css">
 	<!-- typeface -->
 	<link href="https://fonts.googleapis.com/css?family=Questrial" rel="stylesheet">
+	<!-- font awesome cdn -->
+	<script defer src="https://use.fontawesome.com/releases/v5.0.8/js/all.js"></script>
 </head>
 <body>
-	
-	<div id="wrapper">
 
+	<div id="wrapper">
 		<!-- homepage -->
 		<div id="homepage">
 			<img src="img/logo2.png" alt="on my way logo">
@@ -28,7 +26,6 @@
 				</div>
 			</div>	
 		</div> 
-		
 		<!-- help content -->
 		<div id="helpContainer">
 			<div id="helpContent">
@@ -41,7 +38,6 @@
 				<p>4. Tap 'Get Direction' to access guide.</p>
 			</div>
 		</div>
-		
 		<!-- form -->
 		<div id="formContent">
 			<div class="form">
@@ -50,7 +46,6 @@
 						<input class="" id="formInput" name="ac" type="text" size="40">
 					</form>
 				</div>			
-			
 			<!-- map -->
 			<div id="map"><div id="directionInfo"></div></div> 
 			<div id="infowindow-content">
@@ -58,7 +53,7 @@
 		      <span id="place-name"  class="title"></span><br>
 		      <span id="place-address"></span>
 		    </div>
-				
+			<!-- catagories -->
 			<div id="optionContainer">
 				<form>
 					<label>
@@ -80,18 +75,10 @@
 
 	<!-- Jquery NPM -->
 	<script type="text/javascript" src="node_modules/jquery/dist/jquery.js"></script>
-
 	<!-- custom js -->
 	<script type="text/javascript" src="js/custom.js"></script>
-	<script type="text/javascript" src="js/jesse.js"></script>
-	<script type="text/javascript" src="js/jordan.js"></script>
-	<script type="text/javascript" src="js/duke.js"></script>
-	
 	<!-- google maps API -->
 	<!-- Jesse's key -->
 	<script type="text/javascript" src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCyqxMkhc31hKFwW7etsYUkj4PoaO0nSoo&libraries=places&nearbysearch&callback=initMap"></script>
-
-
-
 </body>
 </html>
