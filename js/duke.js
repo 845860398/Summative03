@@ -20,6 +20,4 @@
 	// 	$('#modalContainer').fadeOut(500)
 	// });
 
-	console.log('its working');
-
 })();
