@@ -1,13 +1,10 @@
 
-
 // console.log('A');
 
 // global variables
 var input = $('#formInput')[0];
 var submitBtn = $('#submitBtn')[0];
 var radioBtnOption = $('.radioBtn')[0];
-
-
 
 // google maps init
 function initMap(){
@@ -119,8 +116,6 @@ function initMap(){
         var latLng = {lat: myLat, lng: myLong};
         var service = new google.maps.places.PlacesService(map);
 
-
-
         // radio value selection + icons
         $('input[type=radio]').click(function () {
 
@@ -128,8 +123,6 @@ function initMap(){
 
             var placesNearByQuery = 'https://maps.googleapis.com/maps/api/place/textsearch/xml?query=' + this.value + '+in+' + place.name + '&key=' + apiKey;
             
-
-
             // console.log(placesNearByQuery);
 
             service.nearbySearch({
@@ -173,7 +166,28 @@ function initMap(){
             // console.log(place);
 
                 // get place details for each marker when clicked
-                var placeDetails = 'https://maps.googleapis.com/maps/api/place/details/json?placeid=' + place.place_id + '&key=' + apiKey;
+                // var placeDetails = 'https://maps.googleapis.com/maps/api/place/details/json?placeid=' + place.place_id + '&key=' + apiKey;
+
+                // console.log(placeDetails);
+
+            $.ajax({
+                url: 'https://maps.googleapis.com/maps/api/place/details/json?placeid=' + place.place_id + '&key=' + apiKey,
+                dataType: 'jsonp',
+                success: function(dataNames){
+                
+                    runNames(dataNames);
+
+                },
+                error:function(error){
+                    console.log(error);
+                }        
+            });
+            
+
+        function runNames (dataNames){
+            console.log(dataNames.html_attributions);
+        }
+
 
                 // requests from json
 
@@ -203,8 +217,8 @@ function initMap(){
 
                 // fourth try:
                 // $.ajax({
-                //     type: 'GET',
-                //     url: placeDetails
+                //      url: 'placeDetails',
+                //     dataType: 'JSON',
                 // }).done(function (data){
                 //     console.log(data);
                 // });
@@ -230,7 +244,9 @@ function initMap(){
                 // });
 
                 // console.log(placeDetails);
+
                 infowindow.setContent(place.name + '<br/>' + place.vicinity + '<br/>' + 'Rating: ' + place.rating + '<br/>' + '<span class="getDirections"><a href="#"" ><i class="fas fa-compass"></i>Directions</a></span>');
+                infowindow.setContent(place.name + '<br/>' + place.vicinity + '<br/>' + 'Rating: ' + place.rating + '<br/>' + 'www.placeholderwebsite.com' + '<br/>' +'<span id="getDirections"><a href="#"" ><i class="fas fa-compass"></i>Directions</a></span>');
                 infowindow.open(map, this);
 
                 // get the directions of the place
@@ -265,4 +281,30 @@ function initMap(){
         }// /createMarker
      }); /* /autoComplete event listener */
 } /* /initMap */
+
+// var id; 
+//     if ('geolocation' in navigator) {
+//         console.log("hello");
+        
+//         //console (options.enableHighAccuracy + " " + options.maximumAge + " " + options.timeout);
+//         id = navigator.geolocation.watchPosition(successCallback);
+//         console.log ("WatchID= "+ id);
+//         navigator.geolocation.getCurrentPosition(successCallback);
+            
+//             function successCallback (position) {
+                
+//             console.log (position.coords.latitude);
+//             console.log (position.coords.longitude);
+//             }
+//         function errorCallback (error) {
+//             console.log ("sorry no postion available");
+//         }
+//         /*var options = {
+//         enableHighAccuracy: true, 
+//         maximumAge        : 30000, 
+//         timeout           : 27000
+//         };*/
+//  navigator.geolocation.clearWatch(id);
+//     }
+
 
