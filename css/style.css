@@ -8,6 +8,11 @@
   margin-top: 1em;
   position: relative;
   font-family: 'Questrial', sans-serif; }
+  #wrapper #photoPlaceholder {
+    height: 104px;
+    width: 217px;
+    background-image: url(../img/placeLoc.jpg);
+    margin: 0; }
   #wrapper #homepage {
     position: absolute;
     height: 100%;

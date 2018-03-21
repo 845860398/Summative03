@@ -156,70 +156,13 @@ function initMap(){
 
             // click event on markers to show info
             google.maps.event.addListener(marker, 'click', function() {
+
                 // get place details for each marker when clicked
-                // var placeDetails = 'https://maps.googleapis.com/maps/api/place/details/json?placeid=' + place.place_id + '&key=' + apiKey;
+                var placeDetails = 'https://maps.googleapis.com/maps/api/place/details/json?placeid=' + place.place_id + '&key=' + apiKey;
 
-                // $.ajax({
-                //     url: 'https://maps.googleapis.com/maps/api/place/details/json?placeid=' + place.place_id + '&key=' + apiKey,
-                //     dataType: 'jsonp',
-                //     success: function(dataNames){
-                //         runNames(dataNames);
-                //     },
-                //     error:function(error){
-                //     }        
-                // });
+                
 
-                // function runNames (dataNames){
-                // }
-
-                // requests from json
-
-                // $.getJSON(placeDetails).done(function(data){
-                // });
-
-                // first try:
-                // $.get(placeDetails).done(function (data){
-                // });
-
-                // second try:
-                // var xhr = new XMLHttpRequest();
-                // xhr.open('GET', placeDetails, true);
-                // xhr.onload = function(){
-                // };
-                // xhr.send();
-
-                // third try:
-                // fetch(placeDetails).then(function (response){
-                //     return response.json();
-                // }).then(function(json){
-                // });
-
-                // fourth try:
-                // $.ajax({
-                //      url: 'placeDetails',
-                //     dataType: 'JSON',
-                // }).done(function (data){
-                // });
-
-                // fifth try:
-                // var xhr = new XMLHttpRequest();
-                // xhr.open("GET", placeDetails, true);
-                // xhr.setRequestHeader("X-My-Custom-Header", "some value");
-                // xhr.onload = function () {
-                // };
-                // xhr.send();
-
-                // sixth try:
-                // $.ajax({
-                //     xhrFields: {
-                //         withCredentials: true
-                //     },
-                //     type: "GET",
-                //     url: placeDetails
-                // }).done(function (data) {
-                // });
-
-                infowindow.setContent(place.name + '<br/>' + place.vicinity + '<br/>' + 'Rating: ' + place.rating + '<br/>' + 'www.placeholderwebsite.com' + '<br/>' +'<span class="getDirections"><a href="#"" ><i class="fas fa-compass"></i>Directions</a></span>');
+                infowindow.setContent('<div id=photoPlaceholder></div>' + place.name + '<br/>' + place.vicinity + '<br/>' + 'Rating: ' + place.rating + '<br/>' + 'www.placeholderwebsite.com' + '<br/>' +'<span class="getDirections"><a href="#"" ><i class="fas fa-compass"></i>Directions</a></span>');
                 infowindow.open(map, this);
 
                 // get the directions of the place
@@ -236,33 +179,6 @@ function initMap(){
                         destination: currentLoc,
                         travelMode: google.maps.TravelMode.DRIVING
                     };
-
-                    // first try:
-                    // directionsService.route(request, function (response, status) {
-                    //     if (status == google.maps.DirectionsStatus.OK) {
-                    //         directionsDisplay.setDirections(response.routes);
-                    //         directionsDisplay.setOptions({
-                    //             suppressMarkers: true
-                    //         });
-                    //     } 
-                    //     else {
-                    //     }
-                    // });
-
-                    // second try:
-                    // directionsService.route({
-                    //         origin: placeLoc,
-                    //         destination: currentLoc,
-                    //         travelMode: google.maps.TravelMode.DRIVING
-                    //     }, 
-                    //     function (response, status) {
-                    //         if (status == google.maps.DirectionsStatus.OK) {
-                    //             directionsDisplay.setDirections(response);
-                    //         } 
-                    //         else {
-                    //             window.alert('Directions request failed due to ' + status);
-                    //         }
-                    // });
                 }); // /get directions
             }); //  /info click event
         }// /createMarker
