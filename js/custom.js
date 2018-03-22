@@ -1,7 +1,3 @@
-
-
-
-
 // global variables
 var input = $('#formInput')[0];
 var submitBtn = $('#submitBtn')[0];
